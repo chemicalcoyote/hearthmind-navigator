@@ -1,0 +1,60 @@
+{% extends "base.html" %}
+{% block title %}Checklist{% endblock %}
+
+{% block content %}
+<div class="mb-8">
+    <h1 class="text-3xl font-light text-amber-400 mb-2">Your Checklist</h1>
+    <p class="text-slate-400">Track what you've gathered. One step at a time.</p>
+</div>
+
+<div class="bg-slate-800 rounded-lg p-6 border border-slate-700">
+    <h2 class="text-xl text-amber-400 mb-4">SSDI Application Documents</h2>
+    
+    <div class="space-y-3">
+        <label class="flex items-center space-x-3 cursor-pointer group">
+            <input type="checkbox" class="w-5 h-5 rounded border-slate-600 bg-slate-700 text-amber-500 focus:ring-amber-500">
+            <span class="text-slate-300 group-hover:text-white transition">Medical records (last 12 months)</span>
+        </label>
+        
+        <label class="flex items-center space-x-3 cursor-pointer group">
+            <input type="checkbox" class="w-5 h-5 rounded border-slate-600 bg-slate-700 text-amber-500 focus:ring-amber-500">
+            <span class="text-slate-300 group-hover:text-white transition">List of all doctors and treatment facilities</span>
+        </label>
+        
+        <label class="flex items-center space-x-3 cursor-pointer group">
+            <input type="checkbox" class="w-5 h-5 rounded border-slate-600 bg-slate-700 text-amber-500 focus:ring-amber-500">
+            <span class="text-slate-300 group-hover:text-white transition">Work history (last 15 years)</span>
+        </label>
+        
+        <label class="flex items-center space-x-3 cursor-pointer group">
+            <input type="checkbox" class="w-5 h-5 rounded border-slate-600 bg-slate-700 text-amber-500 focus:ring-amber-500">
+            <span class="text-slate-300 group-hover:text-white transition">Current medications list</span>
+        </label>
+        
+        <label class="flex items-center space-x-3 cursor-pointer group">
+            <input type="checkbox" class="w-5 h-5 rounded border-slate-600 bg-slate-700 text-amber-500 focus:ring-amber-500">
+            <span class="text-slate-300 group-hover:text-white transition">Social Security card or number</span>
+        </label>
+        
+        <label class="flex items-center space-x-3 cursor-pointer group">
+            <input type="checkbox" class="w-5 h-5 rounded border-slate-600 bg-slate-700 text-amber-500 focus:ring-amber-500">
+            <span class="text-slate-300 group-hover:text-white transition">Birth certificate or proof of age</span>
+        </label>
+        
+        <label class="flex items-center space-x-3 cursor-pointer group">
+            <input type="checkbox" class="w-5 h-5 rounded border-slate-600 bg-slate-700 text-amber-500 focus:ring-amber-500">
+            <span class="text-slate-300 group-hover:text-white transition">Bank account info for direct deposit</span>
+        </label>
+    </div>
+    
+    <p class="mt-6 text-slate-500 text-sm">
+        Progress saves in your browser. Nothing leaves your device.
+    </p>
+</div>
+
+<div class="mt-6 bg-slate-800/50 rounded-lg p-4 border border-slate-700/50">
+    <p class="text-slate-400 text-sm">
+        <span class="text-amber-400">Coming soon:</span> Save multiple checklists, track different applications, export your progress.
+    </p>
+</div>
+{% endblock %}

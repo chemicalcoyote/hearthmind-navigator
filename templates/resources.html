@@ -1,0 +1,340 @@
+{% extends "base.html" %}
+{% block title %}Resources{% endblock %}
+
+{% block content %}
+<div class="mb-8">
+    <h1 class="text-3xl font-light text-amber-400 mb-2">Resources</h1>
+    <p class="text-slate-400">Help when you need it. No strings attached.</p>
+</div>
+
+<div class="grid gap-8">
+    <!-- Location Picker -->
+    <div class="bg-slate-800 rounded-lg p-6 border border-slate-700">
+        <h2 class="text-lg text-amber-400 mb-4">📍 Find Local Resources</h2>
+        <form id="location-form" class="flex flex-wrap gap-4 items-end">
+            <div class="flex-1 min-w-[200px]">
+                <label for="state-select" class="block text-slate-400 text-sm mb-2">State</label>
+                <select id="state-select" name="state" class="w-full bg-slate-700 border border-slate-600 rounded-lg px-4 py-2 text-white focus:border-amber-500 focus:outline-none">
+                    <option value="">Select state...</option>
+                    {% for state_code, state_data in local_data.items() %}
+                    <option value="{{ state_code }}" {% if selected_state == state_code %}selected{% endif %}>
+                        {{ state_data.name }}
+                    </option>
+                    {% endfor %}
+                </select>
+            </div>
+            <div class="flex-1 min-w-[200px]">
+                <label for="city-select" class="block text-slate-400 text-sm mb-2">City</label>
+                <select id="city-select" name="city" class="w-full bg-slate-700 border border-slate-600 rounded-lg px-4 py-2 text-white focus:border-amber-500 focus:outline-none" {% if not selected_state %}disabled{% endif %}>
+                    <option value="">Select city...</option>
+                </select>
+            </div>
+            <button type="submit" class="bg-amber-600 hover:bg-amber-500 text-white px-6 py-2 rounded-lg font-medium transition">
+                Find Help
+            </button>
+        </form>
+        <p class="text-slate-500 text-sm mt-3">Your location is only used to show relevant resources. Nothing is tracked.</p>
+    </div>
+
+    <!-- Local Resources (if location selected) -->
+    {% if local_resources %}
+    <div class="bg-gradient-to-r from-green-900/20 to-slate-800 rounded-lg p-6 border border-green-700/30">
+        <h2 class="text-xl text-green-400 mb-4">
+            Local Resources - {{ local_resources.city_name }}, {{ local_resources.state_name }}
+        </h2>
+        
+        <div class="grid gap-6">
+            {% if local_resources.food %}
+            <div>
+                <h3 class="text-sm uppercase tracking-wide text-green-500 mb-3">🍎 Food Assistance</h3>
+                <div class="grid md:grid-cols-2 gap-3">
+                {% for item in local_resources.food %}
+                    <div class="bg-slate-800/50 rounded-lg p-4 border border-slate-700">
+                        <h4 class="text-white font-medium mb-1">{{ item.name }}</h4>
+                        <p class="text-slate-400 text-sm mb-2">{{ item.description }}</p>
+                        <div class="flex flex-wrap gap-3 text-sm">
+                            {% if item.url %}<a href="{{ item.url }}" target="_blank" class="text-green-400 hover:text-green-300">Website →</a>{% endif %}
+                            {% if item.phone %}<span class="text-slate-500">📞 {{ item.phone }}</span>{% endif %}
+                        </div>
+                    </div>
+                {% endfor %}
+                </div>
+            </div>
+            {% endif %}
+
+            {% if local_resources.utilities %}
+            <div>
+                <h3 class="text-sm uppercase tracking-wide text-yellow-500 mb-3">💡 Utilities</h3>
+                <div class="grid md:grid-cols-2 gap-3">
+                {% for item in local_resources.utilities %}
+                    <div class="bg-slate-800/50 rounded-lg p-4 border border-slate-700">
+                        <h4 class="text-white font-medium mb-1">{{ item.name }}</h4>
+                        <p class="text-slate-400 text-sm mb-2">{{ item.description }}</p>
+                        <div class="flex flex-wrap gap-3 text-sm">
+                            {% if item.url %}<a href="{{ item.url }}" target="_blank" class="text-yellow-400 hover:text-yellow-300">Website →</a>{% endif %}
+                            {% if item.phone %}<span class="text-slate-500">📞 {{ item.phone }}</span>{% endif %}
+                        </div>
+                    </div>
+                {% endfor %}
+                </div>
+            </div>
+            {% endif %}
+
+            {% if local_resources.housing %}
+            <div>
+                <h3 class="text-sm uppercase tracking-wide text-blue-500 mb-3">🏠 Housing</h3>
+                <div class="grid md:grid-cols-2 gap-3">
+                {% for item in local_resources.housing %}
+                    <div class="bg-slate-800/50 rounded-lg p-4 border border-slate-700">
+                        <h4 class="text-white font-medium mb-1">{{ item.name }}</h4>
+                        <p class="text-slate-400 text-sm mb-2">{{ item.description }}</p>
+                        <div class="flex flex-wrap gap-3 text-sm">
+                            {% if item.url %}<a href="{{ item.url }}" target="_blank" class="text-blue-400 hover:text-blue-300">Website →</a>{% endif %}
+                            {% if item.phone %}<span class="text-slate-500">📞 {{ item.phone }}</span>{% endif %}
+                        </div>
+                    </div>
+                {% endfor %}
+                </div>
+            </div>
+            {% endif %}
+
+            {% if local_resources.healthcare %}
+            <div>
+                <h3 class="text-sm uppercase tracking-wide text-pink-500 mb-3">🏥 Healthcare</h3>
+                <div class="grid md:grid-cols-2 gap-3">
+                {% for item in local_resources.healthcare %}
+                    <div class="bg-slate-800/50 rounded-lg p-4 border border-slate-700">
+                        <h4 class="text-white font-medium mb-1">{{ item.name }}</h4>
+                        <p class="text-slate-400 text-sm mb-2">{{ item.description }}</p>
+                        <div class="flex flex-wrap gap-3 text-sm">
+                            {% if item.url %}<a href="{{ item.url }}" target="_blank" class="text-pink-400 hover:text-pink-300">Website →</a>{% endif %}
+                            {% if item.phone %}<span class="text-slate-500">📞 {{ item.phone }}</span>{% endif %}
+                        </div>
+                    </div>
+                {% endfor %}
+                </div>
+            </div>
+            {% endif %}
+
+            {% if local_resources.mental_health %}
+            <div>
+                <h3 class="text-sm uppercase tracking-wide text-purple-500 mb-3">🧠 Mental Health</h3>
+                <div class="grid md:grid-cols-2 gap-3">
+                {% for item in local_resources.mental_health %}
+                    <div class="bg-slate-800/50 rounded-lg p-4 border border-slate-700">
+                        <h4 class="text-white font-medium mb-1">{{ item.name }}</h4>
+                        <p class="text-slate-400 text-sm mb-2">{{ item.description }}</p>
+                        <div class="flex flex-wrap gap-3 text-sm">
+                            {% if item.url %}<a href="{{ item.url }}" target="_blank" class="text-purple-400 hover:text-purple-300">Website →</a>{% endif %}
+                            {% if item.phone %}<span class="text-slate-500">📞 {{ item.phone }}</span>{% endif %}
+                        </div>
+                    </div>
+                {% endfor %}
+                </div>
+            </div>
+            {% endif %}
+
+            {% if local_resources.disability %}
+            <div>
+                <h3 class="text-sm uppercase tracking-wide text-amber-500 mb-3">♿ Disability Services</h3>
+                <div class="grid md:grid-cols-2 gap-3">
+                {% for item in local_resources.disability %}
+                    <div class="bg-slate-800/50 rounded-lg p-4 border border-slate-700">
+                        <h4 class="text-white font-medium mb-1">{{ item.name }}</h4>
+                        <p class="text-slate-400 text-sm mb-2">{{ item.description }}</p>
+                        <div class="flex flex-wrap gap-3 text-sm">
+                            {% if item.url %}<a href="{{ item.url }}" target="_blank" class="text-amber-400 hover:text-amber-300">Website →</a>{% endif %}
+                            {% if item.phone %}<span class="text-slate-500">📞 {{ item.phone }}</span>{% endif %}
+                        </div>
+                    </div>
+                {% endfor %}
+                </div>
+            </div>
+            {% endif %}
+
+            {% if local_resources.veterans %}
+            <div>
+                <h3 class="text-sm uppercase tracking-wide text-emerald-500 mb-3">🎖️ Veterans Services</h3>
+                <div class="grid md:grid-cols-2 gap-3">
+                {% for item in local_resources.veterans %}
+                    <div class="bg-slate-800/50 rounded-lg p-4 border border-slate-700">
+                        <h4 class="text-white font-medium mb-1">{{ item.name }}</h4>
+                        <p class="text-slate-400 text-sm mb-2">{{ item.description }}</p>
+                        <div class="flex flex-wrap gap-3 text-sm">
+                            {% if item.url %}<a href="{{ item.url }}" target="_blank" class="text-emerald-400 hover:text-emerald-300">Website →</a>{% endif %}
+                            {% if item.phone %}<span class="text-slate-500">📞 {{ item.phone }}</span>{% endif %}
+                        </div>
+                    </div>
+                {% endfor %}
+                </div>
+            </div>
+            {% endif %}
+        </div>
+    </div>
+    {% endif %}
+
+    <!-- 211 Fallback -->
+    <div>
+        <h2 class="text-lg uppercase tracking-wide text-green-400 mb-4 border-b border-green-900/50 pb-2">Need More Local Help?</h2>
+        <div class="bg-slate-800 rounded-lg p-6 border border-green-900/30">
+            <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
+                <div>
+                    <h3 class="text-green-400 text-xl mb-2">211 - Comprehensive Local Services</h3>
+                    <p class="text-slate-400 mb-2">Food, housing, utilities, healthcare, childcare, and more.</p>
+                    <p class="text-slate-500 text-sm">Call <span class="text-white font-mono">211</span> or visit the website</p>
+                </div>
+                <div class="flex flex-col gap-2">
+                    <a href="https://www.211.org/" target="_blank" class="bg-green-600 hover:bg-green-500 text-white px-6 py-3 rounded-lg text-center font-medium transition">
+                        Find More Resources
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Legal Help -->
+    {% if resources.legal %}
+    <div>
+        <h2 class="text-lg uppercase tracking-wide text-slate-500 mb-4 border-b border-slate-700 pb-2">Legal Help</h2>
+        <div class="grid md:grid-cols-2 gap-4">
+        {% for item in resources.legal %}
+            <a href="{{ item.url }}" target="_blank" class="bg-slate-800 rounded-lg p-4 border border-slate-700 hover:border-amber-500/50 transition block">
+                <h3 class="text-amber-400 mb-1">{{ item.name }}</h3>
+                <p class="text-slate-400 text-sm">{{ item.description }}</p>
+            </a>
+        {% endfor %}
+        </div>
+    </div>
+    {% endif %}
+
+    <!-- Support Communities -->
+    {% if resources.support %}
+    <div>
+        <h2 class="text-lg uppercase tracking-wide text-slate-500 mb-4 border-b border-slate-700 pb-2">Support Communities</h2>
+        <div class="grid md:grid-cols-2 gap-4">
+        {% for item in resources.support %}
+            <a href="{{ item.url }}" target="_blank" class="bg-slate-800 rounded-lg p-4 border border-slate-700 hover:border-amber-500/50 transition block">
+                <h3 class="text-amber-400 mb-1">{{ item.name }}</h3>
+                <p class="text-slate-400 text-sm">{{ item.description }}</p>
+            </a>
+        {% endfor %}
+        </div>
+    </div>
+    {% endif %}
+
+    <!-- Crisis Resources -->
+    {% if resources.crisis %}
+    <div>
+        <h2 class="text-lg uppercase tracking-wide text-red-400 mb-4 border-b border-red-900/50 pb-2">Crisis Support</h2>
+        <div class="grid md:grid-cols-2 gap-4">
+        {% for item in resources.crisis %}
+            <div class="bg-slate-800 rounded-lg p-4 border border-red-900/30">
+                <h3 class="text-red-400 mb-1">{{ item.name }}</h3>
+                <p class="text-white font-mono text-lg mb-1">{{ item.phone }}</p>
+                <p class="text-slate-400 text-sm">{{ item.description }}</p>
+            </div>
+        {% endfor %}
+        </div>
+    </div>
+    {% endif %}
+
+    <!-- Veterans Resources -->
+    {% if resources.veterans %}
+    <div>
+        <h2 class="text-lg uppercase tracking-wide text-emerald-400 mb-4 border-b border-emerald-900/50 pb-2">🎖️ Veterans Services</h2>
+        <div class="grid md:grid-cols-2 gap-4">
+        {% for item in resources.veterans %}
+            <div class="bg-slate-800 rounded-lg p-4 border border-emerald-900/30">
+                <h3 class="text-emerald-400 mb-1">{{ item.name }}</h3>
+                {% if item.phone %}<p class="text-white font-mono text-lg mb-1">{{ item.phone }}</p>{% endif %}
+                <p class="text-slate-400 text-sm mb-2">{{ item.description }}</p>
+                {% if item.url %}<a href="{{ item.url }}" target="_blank" class="text-emerald-400 hover:text-emerald-300 text-sm">Website →</a>{% endif %}
+            </div>
+        {% endfor %}
+        </div>
+    </div>
+    {% endif %}
+
+    <!-- Technology & Connectivity -->
+    {% if resources.technology %}
+    <div>
+        <h2 class="text-lg uppercase tracking-wide text-cyan-400 mb-4 border-b border-cyan-900/50 pb-2">💻 Technology & Connectivity</h2>
+        <div class="grid md:grid-cols-2 gap-4">
+        {% for item in resources.technology %}
+            <a href="{{ item.url }}" target="_blank" class="bg-slate-800 rounded-lg p-4 border border-cyan-900/30 hover:border-cyan-500/50 transition block">
+                <h3 class="text-cyan-400 mb-1">{{ item.name }}</h3>
+                {% if item.phone %}<p class="text-slate-300 text-sm mb-1">📞 {{ item.phone }}</p>{% endif %}
+                <p class="text-slate-400 text-sm">{{ item.description }}</p>
+            </a>
+        {% endfor %}
+        </div>
+    </div>
+    {% endif %}
+</div>
+
+<!-- Location picker JavaScript -->
+<script>
+const localData = {{ local_data | tojson | safe }};
+
+const stateSelect = document.getElementById('state-select');
+const citySelect = document.getElementById('city-select');
+const form = document.getElementById('location-form');
+
+// Populate cities when state changes
+stateSelect.addEventListener('change', function() {
+    const state = this.value;
+    citySelect.innerHTML = '<option value="">Select city...</option>';
+    
+    if (state && localData[state] && localData[state].cities) {
+        citySelect.disabled = false;
+        const cities = localData[state].cities;
+        for (const [cityCode, cityData] of Object.entries(cities)) {
+            const option = document.createElement('option');
+            option.value = cityCode;
+            option.textContent = cityData.name || cityCode;
+            citySelect.appendChild(option);
+        }
+    } else {
+        citySelect.disabled = true;
+    }
+});
+
+// Pre-populate city if state is selected on page load
+{% if selected_state and selected_city %}
+document.addEventListener('DOMContentLoaded', function() {
+    const cities = localData['{{ selected_state }}']?.cities || {};
+    for (const [cityCode, cityData] of Object.entries(cities)) {
+        const option = document.createElement('option');
+        option.value = cityCode;
+        option.textContent = cityData.name || cityCode;
+        if (cityCode === '{{ selected_city }}') option.selected = true;
+        citySelect.appendChild(option);
+    }
+    citySelect.disabled = false;
+});
+{% endif %}
+
+// Save to localStorage
+form.addEventListener('submit', function() {
+    localStorage.setItem('navigator_state', stateSelect.value);
+    localStorage.setItem('navigator_city', citySelect.value);
+});
+
+// Restore from localStorage on page load
+document.addEventListener('DOMContentLoaded', function() {
+    const savedState = localStorage.getItem('navigator_state');
+    const savedCity = localStorage.getItem('navigator_city');
+    
+    if (savedState && !stateSelect.value) {
+        stateSelect.value = savedState;
+        stateSelect.dispatchEvent(new Event('change'));
+        
+        setTimeout(() => {
+            if (savedCity) {
+                citySelect.value = savedCity;
+            }
+        }, 50);
+    }
+});
+</script>
+{% endblock %}

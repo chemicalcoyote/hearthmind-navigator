@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+{% block title %}Benefits Guide{% endblock %}
+
+{% block content %}
+<div class="mb-8">
+    <h1 class="text-3xl font-light text-amber-400 mb-2">Benefits Guide</h1>
+    <p class="text-slate-400">No judgment. Just what you might qualify for and how to get it.</p>
+</div>
+
+<div class="grid gap-6">
+{% for key, benefit in benefits.items() %}
+    <div class="bg-slate-800 rounded-lg p-6 border border-slate-700 hover:border-amber-500/30 transition">
+        <h2 class="text-xl text-amber-400 mb-2">{{ benefit.name }}</h2>
+        <p class="text-slate-300 mb-4">{{ benefit.description }}</p>
+        
+        {% if benefit.eligibility %}
+        <div class="mb-4">
+            <h3 class="text-sm uppercase tracking-wide text-slate-500 mb-2">Who qualifies</h3>
+            <ul class="space-y-1">
+            {% for item in benefit.eligibility %}
+                <li class="text-slate-400 flex items-start">
+                    <span class="text-amber-500 mr-2">•</span>
+                    {{ item }}
+                </li>
+            {% endfor %}
+            </ul>
+        </div>
+        {% endif %}
+        
+        {% if benefit.documents %}
+        <div>
+            <h3 class="text-sm uppercase tracking-wide text-slate-500 mb-2">What you'll need</h3>
+            <ul class="space-y-1">
+            {% for doc in benefit.documents %}
+                <li class="text-slate-400 flex items-start">
+                    <span class="text-green-500 mr-2">📄</span>
+                    {{ doc }}
+                </li>
+            {% endfor %}
+            </ul>
+        </div>
+        {% endif %}
+    </div>
+{% endfor %}
+</div>
+{% endblock %}

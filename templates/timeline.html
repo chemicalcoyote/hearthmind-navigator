@@ -1,0 +1,96 @@
+{% extends "base.html" %}
+{% block title %}Timeline{% endblock %}
+
+{% block content %}
+<div class="mb-8">
+    <h1 class="text-3xl font-light text-amber-400 mb-2">The Process</h1>
+    <p class="text-slate-400">Most people get denied the first time. That's normal, not personal.</p>
+</div>
+
+<div class="space-y-4">
+    <!-- Stage 1: Initial Application -->
+    <div class="bg-slate-800 rounded-lg p-6 border-l-4 border-amber-500">
+        <div class="flex items-start justify-between">
+            <div>
+                <h2 class="text-xl text-amber-400 mb-1">1. Initial Application</h2>
+                <p class="text-slate-400 mb-2">Submit your claim online, by phone, or in person</p>
+                <p class="text-slate-500 text-sm">Timeline: 3-6 months for decision</p>
+            </div>
+            <div class="text-right">
+                <span class="text-2xl font-light text-slate-500">~35%</span>
+                <p class="text-slate-600 text-xs">approval rate</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Stage 2: Reconsideration -->
+    <div class="bg-slate-800 rounded-lg p-6 border-l-4 border-slate-600">
+        <div class="flex items-start justify-between">
+            <div>
+                <h2 class="text-xl text-slate-300 mb-1">2. Reconsideration</h2>
+                <p class="text-slate-400 mb-2">If denied, request a review with new evidence</p>
+                <p class="text-slate-500 text-sm">Timeline: 3-5 months</p>
+            </div>
+            <div class="text-right">
+                <span class="text-2xl font-light text-slate-500">~16%</span>
+                <p class="text-slate-600 text-xs">approval rate</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Stage 3: ALJ Hearing -->
+    <div class="bg-slate-800 rounded-lg p-6 border-l-4 border-slate-600">
+        <div class="flex items-start justify-between">
+            <div>
+                <h2 class="text-xl text-slate-300 mb-1">3. ALJ Hearing</h2>
+                <p class="text-slate-400 mb-2">Present your case to an Administrative Law Judge</p>
+                <p class="text-slate-500 text-sm">Timeline: 12-18 months wait</p>
+            </div>
+            <div class="text-right">
+                <span class="text-2xl font-light text-green-500">~51%</span>
+                <p class="text-slate-600 text-xs">approval rate</p>
+            </div>
+        </div>
+        <p class="mt-3 text-amber-400/80 text-sm">💡 This is where most people win. Don't give up before you get here.</p>
+    </div>
+
+    <!-- Stage 4: Appeals Council -->
+    <div class="bg-slate-800 rounded-lg p-6 border-l-4 border-slate-600">
+        <div class="flex items-start justify-between">
+            <div>
+                <h2 class="text-xl text-slate-300 mb-1">4. Appeals Council</h2>
+                <p class="text-slate-400 mb-2">Review of the ALJ decision</p>
+                <p class="text-slate-500 text-sm">Timeline: 6-12 months</p>
+            </div>
+            <div class="text-right">
+                <span class="text-2xl font-light text-slate-500">varies</span>
+                <p class="text-slate-600 text-xs">approval rate</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Stage 5: Federal Court -->
+    <div class="bg-slate-800 rounded-lg p-6 border-l-4 border-slate-600">
+        <div class="flex items-start justify-between">
+            <div>
+                <h2 class="text-xl text-slate-300 mb-1">5. Federal Court</h2>
+                <p class="text-slate-400 mb-2">Final appeal option</p>
+                <p class="text-slate-500 text-sm">Timeline: 1-2 years</p>
+            </div>
+            <div class="text-right">
+                <span class="text-2xl font-light text-slate-500">rare</span>
+                <p class="text-slate-600 text-xs">most resolve earlier</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="mt-8 bg-slate-800/50 rounded-lg p-6 border border-amber-500/20">
+    <h3 class="text-amber-400 mb-2">The reality</h3>
+    <p class="text-slate-400">
+        The system is designed to deny you at first. This isn't about whether you're "really disabled" - 
+        it's about persistence and documentation. Most successful claims are won at the ALJ hearing stage, 
+        often with help from a disability lawyer (who only gets paid if you win).
+    </p>
+</div>
+{% endblock %}

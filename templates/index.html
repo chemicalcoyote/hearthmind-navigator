@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+{% block title %}Home{% endblock %}
+{% block content %}
+<div class="text-center py-12">
+    <img src="/static/img/logo-hero-clear-lt.png" alt="HearthMind" class="h-24 mx-auto mb-6">
+    <h1 class="text-5xl font-light text-amber-400 mb-4">Navigator</h1>
+    <p class="text-xl text-slate-300 mb-2 max-w-2xl mx-auto">
+        Your guide through benefits, assistance, and support systems.
+    </p>
+    <p class="text-slate-500 mb-12">One place. No judgment. Real help.</p>
+    
+    <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <a href="/benefits" class="p-6 bg-slate-800 rounded-xl border border-amber-500/20 hover:border-amber-500/50 transition text-left">
+            <h3 class="text-amber-400 text-lg mb-2">Benefits Guide</h3>
+            <p class="text-slate-400 text-sm mb-3">SSDI, SSI, SNAP, Medicaid and more</p>
+            <p class="text-amber-200/50 text-xs italic">We'll take this one step at a time.</p>
+        </a>
+        <a href="/resources" class="p-6 bg-slate-800 rounded-xl border border-amber-500/20 hover:border-amber-500/50 transition text-left">
+            <h3 class="text-amber-400 text-lg mb-2">Resources</h3>
+            <p class="text-slate-400 text-sm mb-3">Local programs, lawyers, support</p>
+            <p class="text-amber-200/50 text-xs italic">Help exists. Let's find it.</p>
+        </a>
+        <a href="/checklist" class="p-6 bg-slate-800 rounded-xl border border-amber-500/20 hover:border-amber-500/50 transition text-left">
+            <h3 class="text-amber-400 text-lg mb-2">Checklist</h3>
+            <p class="text-slate-400 text-sm mb-3">Track your documents and tasks</p>
+            <p class="text-amber-200/50 text-xs italic">You don't have to remember everything.</p>
+        </a>
+        <a href="/timeline" class="p-6 bg-slate-800 rounded-xl border border-amber-500/20 hover:border-amber-500/50 transition text-left">
+            <h3 class="text-amber-400 text-lg mb-2">Timeline</h3>
+            <p class="text-slate-400 text-sm mb-3">Where you are in the process</p>
+            <p class="text-amber-200/50 text-xs italic">No deadlines, just clarity.</p>
+        </a>
+    </div>
+    
+    <div class="mt-16 p-6 bg-slate-800/50 rounded-xl border border-slate-700 max-w-xl mx-auto">
+        <p class="text-slate-400 text-sm">
+            <span class="text-amber-400">Don't know where to start?</span><br>
+            That's okay. Try <a href="/benefits" class="text-amber-400 hover:text-amber-300 underline">Benefits Guide</a> first.
+        </p>
+    </div>
+</div>
+{% endblock %}

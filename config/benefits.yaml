@@ -1,0 +1,36 @@
+ssdi:
+  name: "Social Security Disability Insurance"
+  description: "For people who worked and paid into Social Security"
+  eligibility:
+    - "Must have worked enough years"
+    - "Must have a qualifying disability"
+    - "Cannot earn over $1,620/month (2025)"
+  documents:
+    - "Medical records (12+ months)"
+    - "Work history (last 15 years)"
+    - "Doctor contact information"
+    - "Prescription list"
+
+ssi:
+  name: "Supplemental Security Income"
+  description: "For people with limited income and resources"
+  eligibility:
+    - "Limited income and assets"
+    - "Must have qualifying disability"
+    - "No work history required"
+  documents:
+    - "Medical records"
+    - "Proof of income"
+    - "Bank statements"
+    - "Living arrangement info"
+
+snap:
+  name: "SNAP (Food Assistance)"
+  description: "Help buying groceries"
+  eligibility:
+    - "Income below 130% poverty level"
+    - "Some states have higher limits"
+  documents:
+    - "Proof of identity"
+    - "Proof of income"
+    - "Proof of residence"

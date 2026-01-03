@@ -1,0 +1,118 @@
+# Local resources organized by state and city
+# Users select their location, we show relevant local resources
+
+WA:
+  name: "Washington"
+  cities:
+    spokane:
+      name: "Spokane"
+      food:
+        - name: "Second Harvest Inland Northwest"
+          url: "https://2-harvest.org"
+          phone: "509-534-6678"
+          description: "Regional food bank - find a pantry near you"
+        - name: "Spokane Food Fighters"
+          url: "https://www.spokanefoodfighters.org"
+          description: "Community meal sites and food rescue"
+        - name: "Meals on Wheels Spokane"
+          url: "https://www.mowspokane.org"
+          phone: "509-924-6976"
+          description: "Home-delivered meals for seniors and disabled"
+      
+      utilities:
+        - name: "SNAP Financial Access"
+          url: "https://snapwa.org"
+          phone: "509-456-7627"
+          description: "Utility assistance, emergency funds"
+        - name: "Avista Energy Assistance"
+          url: "https://myavista.com/assistance"
+          phone: "1-800-227-9187"
+          description: "Payment plans and low-income programs"
+        - name: "LIHEAP (Low Income Home Energy)"
+          url: "https://www.commerce.wa.gov/growing-the-economy/energy/low-income-home-energy-assistance/"
+          description: "Federal heating/cooling assistance"
+      
+      housing:
+        - name: "Spokane Housing Authority"
+          url: "https://spokanehousing.org"
+          phone: "509-328-2953"
+          description: "Section 8, public housing, vouchers"
+        - name: "Spokane Homeless Coalition"
+          url: "https://spokanehomeless.org"
+          description: "Emergency shelter resources and coordination"
+        - name: "Catholic Charities Housing"
+          url: "https://www.ccspokane.org/housing"
+          phone: "509-358-4250"
+          description: "Transitional housing, rental assistance"
+      
+      healthcare:
+        - name: "CHAS Health"
+          url: "https://chas.org"
+          phone: "509-444-8200"
+          description: "Sliding scale clinics - medical, dental, pharmacy"
+        - name: "Spokane Regional Health District"
+          url: "https://srhd.org"
+          phone: "509-324-1500"
+          description: "Public health services, immunizations"
+        - name: "Washington Apple Health (Medicaid)"
+          url: "https://www.hca.wa.gov/health-care-services-supports/apple-health-medicaid-coverage"
+          description: "State Medicaid enrollment"
+      
+      mental_health:
+        - name: "Frontier Behavioral Health"
+          url: "https://fbhwa.org"
+          phone: "509-838-4651"
+          description: "Mental health and substance use services"
+        - name: "Spokane Mental Health Crisis Line"
+          phone: "509-838-4428"
+          description: "24/7 local crisis support"
+      
+      disability:
+        - name: "Disability Rights Washington"
+          url: "https://www.disabilityrightswa.org"
+          phone: "1-800-562-2702"
+          description: "Legal advocacy for disability rights"
+        - name: "DVR - Division of Vocational Rehabilitation"
+          url: "https://www.dshs.wa.gov/dvr"
+          phone: "509-482-3854"
+          description: "Employment services for disabled"
+      
+      veterans:
+        - name: "Spokane VA Medical Center"
+          url: "https://www.va.gov/spokane-health-care/"
+          phone: "509-434-7000"
+          description: "VA healthcare for enrolled veterans"
+        - name: "Spokane Veterans Center (Vet Center)"
+          phone: "509-444-8387"
+          description: "Readjustment counseling for combat veterans"
+        - name: "Washington State Dept of Veterans Affairs"
+          url: "https://www.dva.wa.gov"
+          phone: "1-800-562-2308"
+          description: "State veterans benefits and services"
+        - name: "Spokane County Veterans Services"
+          phone: "509-477-5732"
+          description: "Local claims assistance and referrals"
+    
+    seattle:
+      name: "Seattle / King County"
+      food:
+        - name: "Northwest Harvest"
+          url: "https://northwestharvest.org"
+          description: "Statewide food bank network"
+        - name: "Food Lifeline"
+          url: "https://foodlifeline.org"
+          description: "Western WA food bank"
+      utilities:
+        - name: "Seattle City Light Utility Discount"
+          url: "https://www.seattle.gov/city-light/residential-services/billing-information/utility-discount-program"
+          description: "Up to 60% discount on electric"
+      housing:
+        - name: "Seattle Housing Authority"
+          url: "https://www.seattlehousing.org"
+          description: "Section 8, public housing"
+        - name: "King County Housing Authority"
+          url: "https://www.kcha.org"
+          description: "County housing programs"
+
+# Add more states/cities as needed
+# Structure: STATE > cities > city_name > category > resources
